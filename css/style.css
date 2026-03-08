@@ -1696,6 +1696,11 @@ footer {
 
 /* ── Tablet landscape (≤1024px) ── */
 @media (max-width: 1024px) {
+  /* Nav — hide links, show hamburger at all tablet sizes */
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-inner { padding: 0 16px; }
+
   .systems-grid { grid-template-columns: repeat(2, 1fr); }
   .sys-card-featured { grid-column: span 2; }
   .approach-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1707,11 +1712,6 @@ footer {
 
 /* ── Tablet portrait / large mobile (≤768px) ── */
 @media (max-width: 768px) {
-  /* Nav */
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .nav-inner { padding: 0 16px; }
-
   /* Hero */
   .hero-inner { padding: 56px 0 140px; }
 
