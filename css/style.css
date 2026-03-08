@@ -627,29 +627,75 @@ section {
 
 .hero-scroll-hint {
   position: absolute;
-  bottom: 32px;
+  bottom: 36px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  color: var(--text-3);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  gap: 10px;
+  text-decoration: none;
+  animation: scroll-float 2.4s ease-in-out infinite;
+  z-index: 2;
+}
+
+.scroll-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  animation: float 2.5s ease-in-out infinite;
+  color: var(--text-2);
+  transition: color 0.2s;
 }
 
-@keyframes float {
+.hero-scroll-hint:hover .scroll-label { color: var(--text-1); }
+
+.scroll-mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--border-h);
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+  transition: border-color 0.2s;
+  background: rgba(255,255,255,0.03);
+}
+
+.hero-scroll-hint:hover .scroll-mouse {
+  border-color: var(--accent);
+  background: rgba(79,125,243,0.06);
+}
+
+.scroll-dot {
+  width: 4px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 2px;
+  animation: scroll-dot 1.9s ease-in-out infinite;
+}
+
+@keyframes scroll-float {
   0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-6px); }
+  50%       { transform: translateX(-50%) translateY(-7px); }
 }
 
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, transparent, var(--border-h));
+@keyframes scroll-dot {
+  0%   { transform: translateY(0);    opacity: 1; }
+  60%  { transform: translateY(12px); opacity: 0; }
+  61%  { transform: translateY(0);    opacity: 0; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+
+/* light mode adjustments */
+body.light .scroll-mouse {
+  border-color: rgba(0,0,0,0.18);
+  background: rgba(0,0,0,0.02);
+}
+
+body.light .hero-scroll-hint:hover .scroll-mouse {
+  border-color: var(--accent);
+  background: rgba(79,125,243,0.06);
 }
 
 /* ============================================================
