@@ -128,6 +128,14 @@ body.light .timeline-dot {
   border-color: var(--bg);
 }
 
+body.light .stack-category-label {
+  color: var(--text-2);
+}
+
+body.light .stack-category-label::after {
+  background: var(--border-h);
+}
+
 /* Theme toggle button */
 .theme-toggle {
   display: flex;
@@ -450,7 +458,7 @@ section {
 
 .hero-inner {
   width: 100%;
-  padding: 80px 0;
+  padding: 80px 0 140px; /* extra bottom clears the absolute scroll-hint */
 }
 
 .hero-badge {
