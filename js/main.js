@@ -4,6 +4,39 @@
 
 'use strict';
 
+/* ---------- THEME TOGGLE ---------- */
+(function initTheme() {
+  const btn      = document.getElementById('theme-toggle');
+  const iconMoon = document.getElementById('icon-moon');
+  const iconSun  = document.getElementById('icon-sun');
+
+  function applyTheme(light) {
+    document.body.classList.toggle('light', light);
+    iconMoon.style.display = light ? 'none'  : '';
+    iconSun.style.display  = light ? ''      : 'none';
+    btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+  }
+
+  // Initialise from localStorage, falling back to OS preference
+  const stored = localStorage.getItem('theme');
+  const preferLight = stored
+    ? stored === 'light'
+    : window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  applyTheme(preferLight);
+
+  btn.addEventListener('click', () => {
+    const isLight = !document.body.classList.contains('light');
+    applyTheme(isLight);
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+
+  // Sync if OS preference changes and user hasn't set a manual choice
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) applyTheme(e.matches);
+  });
+})();
+
 /* ---------- TYPING ANIMATION ---------- */
 (function initTyping() {
   const el = document.getElementById('typed-text');
