@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Personal engineering portfolio for **Md. Raihan Uddin Sufal** — Tech Team Lead / System Architect.
+Personal engineering portfolio for **Raihan Uddin** — Tech Team Lead / System Architect.
 Deployed to GitHub Pages at `https://raihan-uddin.github.io/` from the `raihan-uddin/raihan-uddin.github.io` repo.
 
 ## Development
