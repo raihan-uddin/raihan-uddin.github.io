@@ -1648,10 +1648,9 @@ footer {
    RESPONSIVE
    ============================================================ */
 
+/* ── Tablet landscape (≤1024px) ── */
 @media (max-width: 1024px) {
-  .systems-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .systems-grid { grid-template-columns: repeat(2, 1fr); }
   .sys-card-featured { grid-column: span 2; }
   .approach-grid { grid-template-columns: repeat(2, 1fr); }
   .next-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1660,40 +1659,139 @@ footer {
   .contact-box { padding: 56px 40px; }
 }
 
+/* ── Tablet portrait / large mobile (≤768px) ── */
 @media (max-width: 768px) {
+  /* Nav */
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  .nav-inner { padding: 0 16px; }
 
-  .hero-stats { gap: 24px; }
-  .stat-number { font-size: 1.6rem; }
+  /* Hero */
+  .hero-inner { padding: 56px 0 140px; }
 
+  .hero-role {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    word-break: break-word;
+  }
+
+  /* Stats → clean 2×2 grid */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 28px;
+    margin-top: 40px;
+    padding-top: 32px;
+  }
+  .stat-number { font-size: 1.65rem; }
+
+  /* About */
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .about-numbers { grid-template-columns: repeat(2, 1fr); }
 
+  /* Systems */
   .systems-grid { grid-template-columns: 1fr; }
   .sys-card-featured { grid-column: span 1; }
+  .sys-card { padding: 24px; }
 
+  /* Approach */
   .approach-grid { grid-template-columns: 1fr 1fr; }
+  .approach-card { padding: 24px 18px; }
 
+  /* Next */
   .next-grid { grid-template-columns: 1fr; }
 
-  .contact-box { padding: 40px 24px; }
-  .contact-links { flex-direction: column; align-items: center; }
-
+  /* Timeline */
   .timeline { padding-left: 24px; }
   .timeline-dot { left: -30px; }
+  .timeline-card { padding: 20px 20px; }
+  .timeline-header { flex-direction: column; gap: 8px; }
+  .timeline-period { align-self: flex-start; }
 
+  /* AI */
   .ai-inner { padding: 32px 24px; }
 
+  /* GitHub */
+  .github-box { padding: 36px 24px; }
+  .github-chart { padding: 12px; }
+  .github-chart img { width: 100%; height: auto; }
+
+  /* Contact */
+  .contact-box { padding: 40px 24px; }
+  .contact-links { flex-direction: column; align-items: center; }
+  .contact-link { width: 100%; max-width: 320px; justify-content: center; }
+
+  /* Footer */
   .footer-inner { flex-direction: column; text-align: center; }
 }
 
+/* ── Mobile (≤480px) ── */
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
-  section { padding: 80px 0; }
+  section { padding: 72px 0; }
   #hero { min-height: 100svh; }
+
+  /* Hero */
+  .hero-inner { padding: 44px 0 140px; }
+  .hero-badge { font-size: 0.68rem; padding: 5px 12px 5px 7px; }
+  .hero-desc { font-size: 0.9rem; margin-bottom: 24px; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .btn-primary, .btn-ghost { justify-content: center; }
+
+  /* Approach */
   .approach-grid { grid-template-columns: 1fr; }
+  .approach-card { padding: 22px 18px; }
+
+  /* About */
   .about-numbers { grid-template-columns: 1fr 1fr; }
-  .hero-actions { flex-direction: column; align-items: flex-start; }
-  .github-box { padding: 32px 20px; }
+  .num-card { padding: 22px 18px; }
+  .num-card-val { font-size: 2rem; }
+
+  /* Systems */
+  .sys-card { padding: 20px; }
+  .sys-card-header { flex-wrap: wrap; gap: 10px; }
+
+  /* AI */
+  .ai-inner { padding: 28px 18px; }
+  .ai-title { font-size: 1.5rem; }
+
+  /* Timeline */
+  .timeline { padding-left: 20px; }
+  .timeline-dot { left: -27px; width: 10px; height: 10px; top: 8px; }
+  .timeline-card { padding: 16px; }
+  .timeline-company { font-size: 0.95rem; }
+  .timeline-desc { font-size: 0.82rem; }
+
+  /* Next */
+  .next-card { padding: 22px 18px; }
+
+  /* GitHub */
+  .github-box { padding: 28px 16px; }
+  .github-handle { font-size: 0.95rem; }
+
+  /* Contact */
+  .contact-box { padding: 32px 18px; }
+  .section-title { letter-spacing: -0.02em; }
+}
+
+/* ── Very small phones (≤360px) ── */
+@media (max-width: 360px) {
+  .container { padding: 0 12px; }
+
+  /* Hide nav logo text — keep only the mark */
+  .nav-logo span { display: none; }
+
+  /* Hero scale down */
+  .hero-name { font-size: 2.5rem; }
+  .hero-role { font-size: 0.78rem; }
+  .hero-typed-wrapper { font-size: 0.88rem; }
+  .stat-number { font-size: 1.35rem; }
+  .stat-label { font-size: 0.68rem; }
+
+  /* Cards tighter */
+  .sys-card, .next-card, .approach-card { padding: 16px; }
+  .timeline-card { padding: 14px; }
+  .ai-inner { padding: 22px 14px; }
+  .contact-box { padding: 28px 14px; }
+  .github-box { padding: 24px 12px; }
 }
